@@ -46,7 +46,7 @@ module.exports = function(url, opts) {
         return callback(new Error('Unable to connect to url: ' + url));
       }
 
-      socket = new WebSocket(wsurl(queue.shift()));
+      socket = new WebSocket(wsurl(queue.shift()),opts);
       socket.addEventListener('message', connect);
       socket.addEventListener('error', handleError);
       socket.addEventListener('close', handleClose);
